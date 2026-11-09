@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>秒表 Stopwatch · 隐私政策 / Privacy Policy</title>
+<meta name="description" content="Stopwatch 不收集、不上传、不共享任何个人信息。No data collection, no permissions, no network access." />
+<style>
+  :root{
+    --bg:#f6f8fc; --card:#ffffff; --fg:#14181f; --muted:#5b6472;
+    --accent:#1b6bff; --accent-soft:#e8f0ff; --line:#e3e8f0; --good:#0f7a4d;
+    --radius:16px; --maxw:840px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --card:#161b22; --fg:#e6ebf2; --muted:#9aa4b2;
+      --accent:#6ea8ff; --accent-soft:#17233a; --line:#26303c; --good:#4ade80;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.75; font-size:16px; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:48px 24px 96px}
+  .lang-switch{display:flex; gap:8px; justify-content:flex-end; margin-bottom:24px}
+  .lang-switch button{
+    font:inherit; font-size:14px; padding:8px 16px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--line); background:var(--card); color:var(--muted); transition:.15s;
+  }
+  .lang-switch button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+  header .badge{
+    display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600;
+    color:var(--good); background:var(--accent-soft); border-radius:999px; padding:6px 14px; margin-bottom:18px;
+  }
+  header h1{font-size:clamp(26px,4vw,36px); line-height:1.3; margin:0 0 10px; letter-spacing:-.02em}
+  header .meta{color:var(--muted); font-size:14px; margin:0}
+  .summary{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px 26px; margin:32px 0 40px; box-shadow:0 1px 2px rgba(16,24,40,.04);
+  }
+  .summary h2{margin:0 0 12px; font-size:16px; letter-spacing:.02em; color:var(--accent)}
+  .summary ul{margin:0; padding-left:20px}
+  .summary li{margin:6px 0}
+  .toc{
+    background:transparent; border-left:3px solid var(--accent); padding:4px 0 4px 18px; margin:0 0 44px;
+  }
+  .toc a{color:var(--muted); text-decoration:none; font-size:14px; display:inline-block; margin:4px 18px 4px 0}
+  .toc a:hover{color:var(--accent)}
+  section{margin:0 0 40px}
+  h2{font-size:20px; margin:0 0 12px; letter-spacing:-.01em; scroll-margin-top:24px}
+  h3{font-size:16px; margin:24px 0 8px; color:var(--accent)}
+  p{margin:10px 0}
+  ul,ol{padding-left:22px; margin:10px 0}
+  li{margin:6px 0}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px; background:var(--card);
+    border:1px solid var(--line); border-radius:12px; overflow:hidden}
+  th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{background:var(--accent-soft); font-weight:600}
+  tr:last-child td{border-bottom:none}
+  code{background:var(--accent-soft); padding:1px 6px; border-radius:5px; font-size:13.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .note{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:10px; padding:14px 18px; color:var(--muted); font-size:14.5px; margin:18px 0}
+  a{color:var(--accent)}
+  footer{margin-top:56px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px}
+  .en{display:none}
+  @media print{ .lang-switch{display:none} body{background:#fff; color:#000} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="lang-switch" aria-label="语言切换">
+    <button id="btn-zh" aria-pressed="true" onclick="setLang('zh')">中文</button>
+    <button id="btn-en" aria-pressed="false" onclick="setLang('en')">English</button>
+  </nav>
+
+  <!-- ============================ 中文 ============================ -->
+  <article id="doc-zh" class="zh">
+    <header>
+      <span class="badge">● 零收集 · 零权限 · 无网络</span>
+      <h1>秒表（Stopwatch）隐私政策</h1>
+      <p class="meta">生效日期：2026 年 11 月 6 日 &nbsp;·&nbsp; 最后更新：2026 年 11 月 6 日</p>
+    </header>
+
+    <div class="summary">
+      <h2>一分钟摘要</h2>
+      <ul>
+        <li>本应用<strong>不收集、不上传、不存储、不共享</strong>任何个人信息。</li>
+        <li>本应用<strong>不申请任何 Android 权限</strong>，且没有网络访问能力。</li>
+        <li>本应用<strong>不含广告，也不含第三方统计或分析 SDK</strong>。</li>
+        <li>计时与计次数据只存在于设备内存，关闭应用即消失，卸载即彻底清除。</li>
+        <li>因此我们<strong>没有任何你的数据可以出售、转让或披露</strong>。</li>
+      </ul>
+    </div>
+
+    <div class="toc">
+      <a href="#c1">1. 我们收集的信息</a><a href="#c2">2. 权限说明</a><a href="#c3">3. 存储与保留</a>
+      <a href="#c4">4. 第三方与广告</a><a href="#c5">5. 儿童隐私</a><a href="#c6">6. 你的权利</a>
+      <a href="#c7">7. 数据安全</a><a href="#c8">8. 政策变更</a><a href="#c9">9. 联系方式</a>
+    </div>
+
+    <p>本隐私政策适用于移动应用<strong>秒表（Stopwatch）</strong>（以下简称“本应用”），由 <strong>[开发者名称]</strong>（以下简称“我们”）开发并发布。</p>
+
+    <section id="c1">
+      <h2>1. 我们收集的信息</h2>
+      <p><strong>我们不收集任何信息。</strong>具体而言，本应用不会收集、读取或传输以下任何一类数据：</p>
+      <table>
+        <thead><tr><th>数据类型</th><th>是否收集</th></tr></thead>
+        <tbody>
+          <tr><td>姓名、邮箱、电话等身份信息</td><td>否</td></tr>
+          <tr><td>位置信息（GPS / 网络定位）</td><td>否</td></tr>
+          <tr><td>设备标识符（IMEI、Android ID、Advertising ID、MAC 等）</td><td>否</td></tr>
+          <tr><td>通讯录、短信、通话记录、日历</td><td>否</td></tr>
+          <tr><td>相册、文件、相机、麦克风</td><td>否</td></tr>
+          <tr><td>已安装应用列表</td><td>否</td></tr>
+          <tr><td>应用使用行为、崩溃日志、性能数据</td><td>否</td></tr>
+          <tr><td>计时记录、计次记录</td><td>否（仅存于设备内存，不上传）</td></tr>
+        </tbody>
+      </table>
+      <p>本应用的核心功能是本地计时，全部计算在设备上完成，不需要也不具备联网能力。</p>
+    </section>
+
+    <section id="c2">
+      <h2>2. 权限说明</h2>
+      <p>本应用在 <code>AndroidManifest.xml</code> 中<strong>没有声明任何权限</strong>，包括但不限于：</p>
+      <ul>
+        <li>没有 <code>INTERNET</code>：本应用在操作系统层面就无法向任何服务器发送数据。</li>
+        <li>没有定位、存储、相机、麦克风、通讯录、电话状态相关权限。</li>
+        <li>没有通知权限，也没有前台服务。</li>
+      </ul>
+      <div class="note">“计时期间保持屏幕常亮”通过设置当前 Activity 的 <code>keepScreenOn</code> 属性实现，属于界面层面的开关，<strong>不需要任何系统权限</strong>，也不会改变系统全局设置。</div>
+    </section>
+
+    <section id="c3">
+      <h2>3. 数据的存储与保留</h2>
+      <ul>
+        <li>计时读数、计次列表仅保存在运行时的<strong>内存</strong>中。</li>
+        <li>应用退到后台、屏幕旋转时数据由系统内存保留；进程被系统回收或用户彻底关闭应用后，数据即丢失。</li>
+        <li>本应用<strong>不写入</strong>任何本地文件、数据库或 SharedPreferences。</li>
+        <li>已显式关闭 Android 自动备份（<code>android:allowBackup="false"</code>），上述数据不会进入 Google 云备份，也不会在换机时迁移。</li>
+      </ul>
+    </section>
+
+    <section id="c4">
+      <h2>4. 第三方服务、SDK 与广告</h2>
+      <ul>
+        <li>本应用<strong>不集成</strong>任何广告、统计、分析、崩溃收集、推送或社交 SDK。</li>
+        <li>不存在任何形式的用户追踪、画像或定向广告。</li>
+        <li>本应用通过 <strong>Google Play</strong> 分发。你在浏览、下载、更新本应用时，Google 会按其自身政策处理你的账号与设备信息，该部分由 Google 独立负责，不受本政策约束，详见
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私权政策</a>。</li>
+        <li>本应用<strong>不出售、不出租、不交换</strong>任何数据（它本来就不收集数据）。</li>
+      </ul>
+    </section>
+
+    <section id="c5">
+      <h2>5. 儿童隐私</h2>
+      <p>本应用不面向 13 周岁以下儿童定向收集任何信息——事实上它不收集任何人的信息。由于不存在账号体系、不存在联网、不存在个性化内容，本应用对儿童是安全的，也不会有意收集儿童的个人信息。若你认为我们在不知情的情况下持有了儿童信息，请联系我们，我们会立即核查并删除。</p>
+    </section>
+
+    <section id="c6">
+      <h2>6. 你的权利</h2>
+      <p>由于本应用不收集任何个人数据，通常不存在需要行使的访问、更正、删除、导出、撤回同意等权利。若你所在司法辖区（如欧盟 GDPR、中国《个人信息保护法》）赋予你相关权利，我们同样尊重：</p>
+      <ul>
+        <li><strong>删除权</strong>：卸载本应用即可清除全部本地数据；我们服务器上没有任何你的数据副本。</li>
+        <li><strong>拒绝权</strong>：无需任何设置，本应用从设计上就不进行数据处理。</li>
+        <li>如需行使任何权利或有疑问，可通过第 9 节的方式联系我们，我们将在 15 个工作日内答复。</li>
+      </ul>
+    </section>
+
+    <section id="c7">
+      <h2>7. 数据安全</h2>
+      <p>由于本应用不传输、不存储个人信息，也不联网，主要风险面为设备本身。我们仍采取以下措施降低风险：</p>
+      <ul>
+        <li>不声明任何敏感权限，遵循最小权限原则（实际是“零权限”）。</li>
+        <li>发布版本开启 R8 代码混淆与资源压缩。</li>
+        <li>关闭云备份与设备间迁移，避免计时数据外流。</li>
+      </ul>
+      <p>请注意：设备丢失、被他人物理接触、系统被 root 等情形下的数据暴露风险，需由你通过设备锁屏、加密等措施自行防护。</p>
+    </section>
+
+    <section id="c8">
+      <h2>8. 本政策的变更</h2>
+      <p>若未来版本增加会影响隐私的功能（例如云同步、账号登录），我们会在发布前更新本政策，并在应用内或商店页面显著提示。届时本政策顶部的“最后更新”日期会同步修改。继续使用更新后的版本，视为你已阅读新的政策。</p>
+    </section>
+
+    <section id="c9">
+      <h2>9. 联系我们</h2>
+      <p>如对本政策有任何疑问、意见或投诉，请联系：</p>
+      <ul>
+        <li>开发者：<strong>[FuHR]</strong></li>
+        <li>邮箱：<strong>[claymore_teresa@126.com]</strong></li>
+        <li>应用包名：<strong>com.fdtstopwatch</strong></li>
+      </ul>
+      <p>我们将在收到请求后 15 个工作日内回复。</p>
+    </section>
+
+    <footer>本政策以中文与英文双语提供，如有歧义，以中文版本为准。<br/>© 2026 [FuHR]. All rights reserved.</footer>
+  </article>
+
+  <!-- ============================ English ============================ -->
+  <article id="doc-en" class="en">
+    <header>
+      <span class="badge">● No collection · No permissions · No network</span>
+      <h1>Privacy Policy — Stopwatch</h1>
+      <p class="meta">Effective date: November 6, 2026 &nbsp;·&nbsp; Last updated: November 6, 2026</p>
+    </header>
+
+    <div class="summary">
+      <h2>Summary</h2>
+      <ul>
+        <li>The App does <strong>not collect, transmit, store, or share</strong> any personal information.</li>
+        <li>The App requests <strong>no Android permissions</strong> and has <strong>no network access</strong>.</li>
+        <li>The App contains <strong>no ads and no third-party analytics or tracking SDKs</strong>.</li>
+        <li>Timing and lap data exist only in device memory; closing the App clears them, uninstalling removes them permanently.</li>
+        <li>We therefore have <strong>no data about you to sell, transfer, or disclose</strong>.</li>
+      </ul>
+    </div>
+
+    <p>This Privacy Policy applies to the mobile application <strong>Stopwatch</strong> (the “App”), developed and published by <strong>[Developer Name]</strong> (“we”, “us”).</p>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <p><strong>None.</strong> We do not collect identity data, location, device identifiers (IMEI, Android ID, Advertising ID, MAC), contacts, messages, calendar, photos, files, camera or microphone input, installed-app lists, usage analytics, crash logs, or your timing/lap records.</p>
+      <p>All computation happens locally on your device. The App is technically incapable of sending data anywhere because it lacks the <code>INTERNET</code> permission.</p>
+    </section>
+
+    <section>
+      <h2>2. Permissions</h2>
+      <p>The App declares <strong>no permissions</strong> in its manifest — no <code>INTERNET</code>, no location, no storage, no camera, no microphone, no contacts, no phone state, no notifications, and no foreground service.</p>
+      <div class="note">The “keep screen on while timing” behavior is implemented via the Activity’s <code>keepScreenOn</code> window flag. It requires no permission and does not modify any global system setting.</div>
+    </section>
+
+    <section>
+      <h2>3. Data Storage and Retention</h2>
+      <p>Timing readings and lap lists are held in volatile memory only. The App writes no files, databases, or preferences, and explicitly disables Android Auto Backup (<code>android:allowBackup="false"</code>) and device transfer, so this data never leaves the device through backup channels.</p>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services, SDKs, and Advertising</h2>
+      <p>The App integrates no advertising, analytics, crash-reporting, push, or social SDKs, and performs no tracking or profiling. The App is distributed through <strong>Google Play</strong>; Google’s handling of your account and device data during browsing, download, and updates is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a> and is outside the scope of this policy.</p>
+    </section>
+
+    <section>
+      <h2>5. Children’s Privacy</h2>
+      <p>The App does not collect information from anyone, including children under 13 (or the applicable age in your jurisdiction). There are no accounts, no network features, and no personalized content.</p>
+    </section>
+
+    <section>
+      <h2>6. Your Rights</h2>
+      <p>Because no personal data is collected, there is typically no data to access, correct, export, or delete. Uninstalling the App removes all local data; we hold no copies on any server. If you are entitled to rights under the GDPR, PIPL, CCPA, or similar laws, contact us and we will respond within 15 business days.</p>
+    </section>
+
+    <section>
+      <h2>7. Security</h2>
+      <p>We follow a zero-permission, offline-by-design approach, enable R8 obfuscation and resource shrinking for release builds, and disable cloud backup and device transfer. Risks arising from a lost device, physical access by others, or a rooted system must be mitigated by you through device lock screen and encryption.</p>
+    </section>
+
+    <section>
+      <h2>8. Changes to This Policy</h2>
+      <p>If a future version introduces privacy-affecting features (e.g., cloud sync or sign-in), we will update this policy before release and provide prominent notice in the App or on the store listing. The “Last updated” date will change accordingly.</p>
+    </section>
+
+    <section>
+      <h2>9. Contact</h2>
+      <ul>
+        <li>Developer: <strong>[FuHR]</strong></li>
+        <li>Email: <strong>[claymore_teresa@126.com]</strong></li>
+        <li>Package name: <strong>com.fdtstopwatch</strong></li>
+      </ul>
+      <p>We respond within 15 business days.</p>
+    </section>
+
+    <footer>This policy is provided in Chinese and English. In case of ambiguity, the Chinese version prevails.<br/>© 2026 [FuHR]. All rights reserved.</footer>
+  </article>
+
+</div>
+<script>
+  function setLang(lang){
+    var zh = lang === 'zh';
+    document.getElementById('doc-zh').style.display = zh ? 'block' : 'none';
+    document.getElementById('doc-en').style.display = zh ? 'none' : 'block';
+    document.getElementById('btn-zh').setAttribute('aria-pressed', zh ? 'true' : 'false');
+    document.getElementById('btn-en').setAttribute('aria-pressed', zh ? 'false' : 'true');
+    document.documentElement.lang = zh ? 'zh-CN' : 'en';
+  }
+</script>
+</body>
+</html>
